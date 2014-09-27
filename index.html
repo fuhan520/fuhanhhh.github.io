@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>Hello Meijun!</title>
+    <title>Hello 付涵!</title>
     <style type="text/css">
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
     margin:0;
@@ -60,7 +60,7 @@ body {
     width: 100%;
     position: absolute;
     z-index: 999;
-    background: url("http://lukesign.qiniudn.com/images/site/loading.gif") no-repeat center center #FFFAD1;
+    background: url("../images/site/loading.gif") no-repeat center center #FFFAD1;
     top: 0;
     left: 0;
     text-align: center;
@@ -101,15 +101,15 @@ body {
     <div id="map"></div>
 
 <!-- 指定全局的分享内容 -->
-<input id="wsContent" type="hidden" value="一个送给美君的生日礼物，也是送给所有异地恋人的礼物「变得是距离，不变的是坚持」。 via @LOO2K">
+<input id="wsContent" type="hidden" value="一个送给付涵的生日礼物，也是送给所有异地恋人的礼物「变得是距离，不变的是坚持」。 via @Sugite">
 <!-- 指定全局的分享链接 -->
-<input id="wsUrl" type="hidden" value="http://liumeijun.com/">
+<input id="wsUrl" type="hidden" value="http://fuhan520.github.io/">
 <!-- 指定全局的分享图片 -->
-<input id="wsPic" type="hidden" value="http://lukesign.qiniudn.com/social.png">
+<input id="wsPic" type="hidden" value="../social.png">
 
-<script type="text/javascript" src="http://lukesign.qiniudn.com/jquery.min.js"></script>
-<script type="text/javascript" src="http://lukesign.qiniudn.com/jquery.wshare.js"></script>
-<script type="text/javascript" src="http://lukesign.qiniudn.com/sm/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.wshare.js"></script>
+<script type="text/javascript" src="../sm/soundmanager2-nodebug-jsmin.js"></script>
 <script type="text/javascript">
 (function(a,b){"use strict";var c=function(){var a=[["requestFullscreen","exitFullscreen","fullscreenchange","fullscreen","fullscreenElement"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitfullscreenchange","webkitIsFullScreen","webkitCurrentFullScreenElement"],["mozRequestFullScreen","mozCancelFullScreen","mozfullscreenchange","mozFullScreen","mozFullScreenElement"]];for(var c=0,d=a.length;c<d;c++){var e=a[c];if(e[1]in b)return e}}();if(!c)return a.screenfull=!1;var d="ALLOW_KEYBOARD_INPUT"in Element,e={init:function(){return b.addEventListener(c[2],function(a){e.isFullscreen=b[c[3]],e.element=b[c[4]],e.onchange(a)}),this},isFullscreen:b[c[3]],element:b[c[4]],request:function(a){a=a||b.documentElement,a[c[0]](d&&Element.ALLOW_KEYBOARD_INPUT),b.isFullscreen||a[c[0]]()},exit:function(){b[c[1]]()},toggle:function(a){this.isFullscreen?this.exit():this.request(a)},onchange:function(){}};a.screenfull=e.init()})(window,document)
 </script>
@@ -117,23 +117,24 @@ body {
 
 /*
  * 常用变量
- * 梅州嘉应学院： 116.135018,24.33438
- * 广州广外艺：   113.345774,23.153356
- * 426 KM
- * 5H
+ * 三峡大学： 111.318876, 30.727379
+ * 湖北大学：   114.33871, 30.580397
+ 113.15168, 30.681296
+ * 340 KM
+ * 4H
  */
 // 初始化地图中心
 var MP_CEN = {lng: 3.894763, lat: 44.529534};
 // 中国中心
 var CN_CEN = {lng: 103.758427, lat: 36.172333};
-// 嘉应学院
-var MZ_JYU = {lng: 116.135018, lat: 24.33438};
-// 广外艺
-var GZ_GTC = {lng: 113.345774, lat: 23.153356};
-// 广州市
-var GD_GZS = {lng: 113.256838, lat: 23.157309};
-// 河源市
-var GD_HYS = {lng: 114.701682, lat: 23.754195};
+// 三峡大学
+var YC_CTGU = {lng: 111.318876, lat: 30.727379};
+// 湖北大学
+var WH_HBU = {lng: 114.33871, lat: 30.580397};
+// 宜昌市
+var HB_YCS = {lng: 111.297578, lat: 30.703655};
+// 武汉市
+var HB_WHS = {lng:  113.15168, lat: 30.681296};
 // 背景音乐
 var MUSIC;
 
@@ -194,23 +195,23 @@ function loopWin(loopList, time, callback) {
 }
 
 function panZoom_GTC() {
-    map.panTo(new BMap.Point(GZ_GTC.lng, GZ_GTC.lat));
+    map.panTo(new BMap.Point(WH_HBU.lng, WH_HBU.lat));
     setTimeout(function() {
         zoomTo(18, 800, function() {
-            var marker = new BMap.Marker(GZ_GTC);
+            var marker = new BMap.Marker(WH_HBU);
             map.addOverlay(marker);
             marker.setAnimation(BMAP_ANIMATION_BOUNCE);
             setTimeout(panZoom_JYU, 1000);
-        }, GZ_GTC);
+        }, WH_HBU);
     }, 800);
 }
 
 function panZoom_JYU() {
     zoomTo(8, 1000, function() {
-        map.panTo(new BMap.Point(MZ_JYU.lng, MZ_JYU.lat));
+        map.panTo(new BMap.Point(YC_CTGU.lng, YC_CTGU.lat));
         setTimeout(function() {
             zoomTo(16, 800, function() {
-                var marker = new BMap.Marker(MZ_JYU);
+                var marker = new BMap.Marker(YC_CTGU);
                 map.addOverlay(marker);
                 marker.setAnimation(BMAP_ANIMATION_BOUNCE);
                 setTimeout(panZoom_HEY, 1000);
@@ -221,28 +222,28 @@ function panZoom_JYU() {
 
 function panZoom_HEY() {
     zoomTo(9, 1000, function() {
-        map.panTo(new BMap.Point(GD_HYS.lng, GD_HYS.lat));
+        map.panTo(new BMap.Point(HB_WHS.lng, HB_WHS.lat));
         setTimeout(function() {
-            var start = new BMap.Point(MZ_JYU.lng, MZ_JYU.lat);
-            var end   = new BMap.Point(GZ_GTC.lng, GZ_GTC.lat);
+            var start = new BMap.Point(YC_CTGU.lng, YC_CTGU.lat);
+            var end   = new BMap.Point(WH_HBU.lng, WH_HBU.lat);
             var driving2 = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: false}});
             driving2.search(start, end);
             setTimeout(function() {
                 var between = [
                     {
-                        title: '梅州 → 广州',
-                        content: '426 km.',
-                        point: MZ_JYU
+                        title: '宜昌 → 武汉',
+                        content: '340 km.',
+                        point: YC_CTGU
                     },
                     {
-                        title: '梅州 → 广州',
-                        content: '5 hours by train.',
-                        point: GZ_GTC
+                        title: '宜昌 → 武汉',
+                        content: '4 hours by train.',
+                        point: WH_HBU
                     },
                     {
                         title: '变得是距离，不变的是坚持；',
-                        content: '<img src="http://lukesign.qiniudn.com/images/ticket.jpg" width="200" height="149" alt="ticket" />',
-                        point: MZ_JYU
+                        content: '<img src="../images/ticket.jpg" width="200" height="149" alt="ticket" />',
+                        point: YC_CTGU
                     }
                 ];
                 loopWin(between, 2000, showPhotos);
@@ -253,68 +254,68 @@ function panZoom_HEY() {
 
 function showPhotos() {
     map.clearOverlays();
-    map.panTo(new BMap.Point(GD_GZS.lng, GD_GZS.lat));
+    map.panTo(new BMap.Point(HB_YCS.lng, HB_YCS.lat));
     setTimeout(function() {
         zoomTo(13, 1000, function() {
             var photos = [
                 {
                     title: '纪念堂',
-                    content: '<img src="http://lukesign.qiniudn.com/images/jiniantang.jpg" width="500" height="373" alt="纪念堂" />',
+                    content: '<img src="../images/jiniantang.jpg" width="500" height="373" alt="纪念堂" />',
                     point: {lng: 113.271147, lat: 23.139616}
                 },
                 {
                     title: '陈家祠',
-                    content: '<img src="http://lukesign.qiniudn.com/images/chenjiaci.jpg" width="500" height="373" alt="陈家祠" />',
+                    content: '<img src="../images/chenjiaci.jpg" width="500" height="373" alt="陈家祠" />',
                     point: {lng: 113.252764, lat: 23.131838}
                 },
                 {
                     title: '看电影',
-                    content: '<img src="http://lukesign.qiniudn.com/images/dianying.jpg" width="500" height="373" alt="看电影" />',
+                    content: '<img src="../images/dianying.jpg" width="500" height="373" alt="看电影" />',
                     point: {lng: 113.268865, lat: 23.200458}
                 },
                 {
                     title: '',
-                    content: '<img src="http://lukesign.qiniudn.com/images/chenjiaci1.jpg" width="500" height="373" alt="陈家祠" />',
+                    content: '<img src="../images/chenjiaci1.jpg" width="500" height="373" alt="陈家祠" />',
                     point: {lng: 113.252764, lat: 23.131838}
                 },
                 {
                     title: '吃货',
-                    content: '<img src="http://lukesign.qiniudn.com/images/beijingroad.jpg" width="280" height="375" alt="吃货" />',
+                    content: '<img src="../images/beijingroad.jpg" width="280" height="375" alt="吃货" />',
                     point: {lng: 113.275619, lat: 23.127547}
                 },
                 {
                     title: '',
-                    content: '<img src="http://lukesign.qiniudn.com/images/chenjiaci2.jpg" width="500" height="375" alt="陈家祠" />',
+                    content: '<img src="../images/chenjiaci2.jpg" width="500" height="375" alt="陈家祠" />',
                     point: {lng: 113.252764, lat: 23.131838}
                 },
                 {
                     title: '臭美中...',
-                    content: '<img src="http://lukesign.qiniudn.com/images/dress1.jpg" width="280" height="375" alt="臭美" />',
+                    content: '<img src="../images/dress1.jpg" width="280" height="375" alt="臭美" />',
                     point: {lng: 113.275619, lat: 23.127547}
                 },
                 {
                     title: '臭美中...',
-                    content: '<img src="http://lukesign.qiniudn.com/images/dress2.jpg" width="280" height="375" alt="臭美" />',
+                    content: '<img src="../images/dress2.jpg" width="280" height="375" alt="臭美" />',
                     point: {lng: 113.248583, lat: 23.123725}
                 },
                 {
                     title: '',
-                    content: '<img src="http://lukesign.qiniudn.com/images/you.jpg" width="499" height="373" alt="You" />',
+                    content: '<img src="../images/you.jpg" width="499" height="373" alt="You" />',
                     point: {lng: 113.340995, lat: 23.106222}
                 },
                 {
                     title: '又是离开，又是不舍...',
-                    content: '<img src="http://lukesign.qiniudn.com/images/leave.jpg" width="500" height="375" alt="离开" />',
+                    content: '<img src="../images/leave.jpg" width="500" height="375" alt="离开" />',
                     point: {lng: 113.358452, lat: 23.158306}
                 },
                 {
                     title: '红海湾',
-                    content: '<img src="http://lukesign.qiniudn.com/images/sea.jpg" width="500" height="375" alt="红海湾" />',
+                    content: '<img src="../images/sea.jpg" width="500" height="375" alt="红海湾" />',
                     point: {lng: 115.573511, lat: 22.712665}
                 },
                 {
                     title: '后山',
-                    content: '<img src="http://lukesign.qiniudn.com/images/s.jpg" width="500" height="375" alt="后山" />',
+                    content: '<img src="../images/s.jpg" width="500" height="375" alt="后山" />',
                     point: {lng: 115.622433, lat: 23.184734}
                 }
             ];
@@ -337,27 +338,27 @@ function wannaTo() {
                 },
                 {
                     title: '厦门',
-                    content: '<img src="http://lukesign.qiniudn.com/images/wannato/xiamen.jpg" width="500" height="338" alt="wannaTo" />',
+                    content: '<img src="../images/wannato/xiamen.jpg" width="500" height="338" alt="wannaTo" />',
                     point: {lng: 118.148154, lat: 24.497912}
                 },
                 {
                     title: '凤凰古镇',
-                    content: '<img src="http://lukesign.qiniudn.com/images/wannato/fenghuang.jpg" width="500" height="337" alt="wannaTo" />',
+                    content: '<img src="../images/wannato/fenghuang.jpg" width="500" height="337" alt="wannaTo" />',
                     point: {lng: 100.21191, lat: 26.928061}
                 },
                 {
                     title: '桂林阳朔',
-                    content: '<img src="http://lukesign.qiniudn.com/images/wannato/guilin.jpg" width="499" height="399" alt="wannaTo" />',
+                    content: '<img src="../images/wannato/guilin.jpg" width="499" height="399" alt="wannaTo" />',
                     point: {lng: 110.503626, lat: 24.780932}
                 },
                 {
                     title: '西藏',
-                    content: '<img src="http://lukesign.qiniudn.com/images/wannato/xizang.jpg" width="500" height="400" alt="wannaTo" />',
+                    content: '<img src="../images/wannato/xizang.jpg" width="500" height="400" alt="wannaTo" />',
                     point: {lng: 91.115691, lat: 29.687083}
                 },
                 {
                     title: '杭州西湖',
-                    content: '<img src="http://lukesign.qiniudn.com/images/wannato/xihu.jpg" width="500" height="327" alt="wannaTo" />',
+                    content: '<img src="../images/wannato/xihu.jpg" width="500" height="327" alt="wannaTo" />',
                     point: {lng: 120.151946, lat: 30.250472}
                 }
             ];
@@ -1150,7 +1151,7 @@ function init() {
     map.clearOverlays();
     map.reset();
     MUSIC.play();
-    map.panTo(new BMap.Point(GZ_GTC.lng, GZ_GTC.lat));
+    map.panTo(new BMap.Point(WH_HBU.lng, WH_HBU.lat));
     panZoom_GTC();
 }
  
@@ -1162,28 +1163,28 @@ function loadScript() {
 
 window.onload = function() {
     var imglist = [
-        'http://lukesign.qiniudn.com/images/ticket.jpg',
-        'http://lukesign.qiniudn.com/images/beijingroad.jpg',
-        'http://lukesign.qiniudn.com/images/chenjiaci.jpg',
-        'http://lukesign.qiniudn.com/images/chenjiaci1.jpg',
-        'http://lukesign.qiniudn.com/images/chenjiaci2.jpg',
-        'http://lukesign.qiniudn.com/images/dianying.jpg',
-        'http://lukesign.qiniudn.com/images/dress1.jpg',
-        'http://lukesign.qiniudn.com/images/dress2.jpg',
-        'http://lukesign.qiniudn.com/images/jiniantang.jpg',
-        'http://lukesign.qiniudn.com/images/leave.jpg',
-        'http://lukesign.qiniudn.com/images/s.jpg',
-        'http://lukesign.qiniudn.com/images/sea.jpg',
-        'http://lukesign.qiniudn.com/images/you.jpg',
-        'http://lukesign.qiniudn.com/images/wannato/fenghuang.jpg',
-        'http://lukesign.qiniudn.com/images/wannato/guilin.jpg',
-        'http://lukesign.qiniudn.com/images/wannato/xiamen.jpg',
-        'http://lukesign.qiniudn.com/images/wannato/xihu.jpg',
-        'http://lukesign.qiniudn.com/images/wannato/xizang.jpg'
+        '../images/ticket.jpg',
+        '../images/beijingroad.jpg',
+        '../images/chenjiaci.jpg',
+        '../images/chenjiaci1.jpg',
+        '../images/chenjiaci2.jpg',
+        '../images/dianying.jpg',
+        '../images/dress1.jpg',
+        '../images/dress2.jpg',
+        '../images/jiniantang.jpg',
+        '../images/leave.jpg',
+        '../images/s.jpg',
+        '../images/sea.jpg',
+        '../images/you.jpg',
+        '../images/wannato/fenghuang.jpg',
+        '../images/wannato/guilin.jpg',
+        '../images/wannato/xiamen.jpg',
+        '../images/wannato/xihu.jpg',
+        '../images/wannato/xizang.jpg'
     ];
 
     soundManager.setup({
-        url: 'http://lukesign.qiniudn.com/sm/',
+        url: '../sm/',
         onready: initMP3
     });
 
